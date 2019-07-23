@@ -1,0 +1,12 @@
+body {
+    background-color: darkslategrey;
+}
+
+.grid {
+    width: 600px;
+    height: 500 px;
+    margin: 0 auto;
+    background-color: white;
+    padding: 50px;
+    
+}
