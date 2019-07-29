@@ -46,16 +46,27 @@ $( document ).ready(function() { // ALWAYS INCLUDE!!
         $("#start").click(function(){
 
                 // Add image for question to the page
-                $("#question-picture").append("<img src='assets/images/question1.jpg'/>");
+
+                //$("$question-picture").remove();
+                $("#question-picture").replaceWith("<img src='assets/images/question1.jpg'/>");
 
                 // Add the question to the page
                 $("#question").text(gameQuestions[0].question1);
 
                 // Add the buttons to the page
-                $("#button1").text(gameQuestions[0].choices1[0]);
-                $("#button2").text(gameQuestions[0].choices1[1]);
-                $("#button3").text(gameQuestions[0].choices1[2]);
-                $("#button4").text(gameQuestions[0].choices1[3]);
+
+                $("#button1").html("<button>" + gameQuestions[0].choices1[0] + "</button>");
+                $("#button2").html("<button>" + gameQuestions[0].choices1[1] + "</button>");
+                $("#button3").html("<button>" + gameQuestions[0].choices1[2] + "</button>");
+                $("#button4").html("<button>" + gameQuestions[0].choices1[3] + "</button>");
+
+
+                // Previous code for buttons
+
+                ////$("#button1").text(gameQuestions[0].choices1[0]);
+                ////$("#button2").text(gameQuestions[0].choices1[1]);
+                ////$("#button3").text(gameQuestions[0].choices1[2]);
+                ////$("#button4").text(gameQuestions[0].choices1[3]);
 
                 // Remove the start button from the page
                 $("#start").remove();

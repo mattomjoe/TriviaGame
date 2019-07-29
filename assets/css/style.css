@@ -11,3 +11,19 @@ body {
     
 }
 
+/* Center start button on page */
+#start {
+    display: flex;
+    justify-content: center;
+}
+
+/* Center buttons on page */
+.buttons {
+    display: flex;
+    justify-content: center;
+}
+
+#question-picture {
+    display: flex;
+    justify-content: center;
+}
