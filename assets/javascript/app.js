@@ -60,14 +60,6 @@ $( document ).ready(function() { // ALWAYS INCLUDE!!
                 $("#button3").html("<button>" + gameQuestions[0].choices1[2] + "</button>");
                 $("#button4").html("<button>" + gameQuestions[0].choices1[3] + "</button>");
 
-
-                // Previous code for buttons
-
-                ////$("#button1").text(gameQuestions[0].choices1[0]);
-                ////$("#button2").text(gameQuestions[0].choices1[1]);
-                ////$("#button3").text(gameQuestions[0].choices1[2]);
-                ////$("#button4").text(gameQuestions[0].choices1[3]);
-
                 // Remove the start button from the page
                 $("#start").remove();
 
@@ -107,7 +99,7 @@ $( document ).ready(function() { // ALWAYS INCLUDE!!
                         stop();
 
                         //  Alert the user that time is up.
-                        alert("Time Up!");
+                        ////alert("Time Up!");
                         }
                 }
 
