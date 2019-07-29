@@ -43,7 +43,16 @@ $( document ).ready(function() { // ALWAYS INCLUDE!!
 
         $("#start").click(function(){
                 $("#question").text(gameQuestions[0].question1);
+                $("#button1").text(gameQuestions[0].choices1[0]);
+                $("#button2").text(gameQuestions[0].choices1[1]);
+                $("#button3").text(gameQuestions[0].choices1[2]);
+                $("#button4").text(gameQuestions[0].choices1[3]);
+                $("#start").remove();
         });
+
+        $('#buttons').on('click', function(event) {
+                console.log("You clicked on: ", event.target);
+            }
 
 
        
