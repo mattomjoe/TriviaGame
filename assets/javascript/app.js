@@ -7,6 +7,8 @@ $( document ).ready(function() { // ALWAYS INCLUDE!!
                 var rightAnswerTotal = 0; // Var to hold right answer total at end of game
                 var wrongAnswerTotal = 0; // Var to hold wrong answer total at end of game
                 var unAnsweredTotal = 0; // Var to hold unanswered questions (timed out) at end of game
+                var timerStart = 10; // Sets timer to start at 10 seconds
+                var intervalId; // Variable that will hold our interval ID when we execute the "timerRun" function
 
         }
 
@@ -42,17 +44,30 @@ $( document ).ready(function() { // ALWAYS INCLUDE!!
         console.log(gameQuestions[0].choices1[1]);
 
         $("#start").click(function(){
+
+                // Add image for question to the page
+                $("#question-picture").append("<img src='assets/images/question1.jpg'/>");
+
+                // Add the question to the page
                 $("#question").text(gameQuestions[0].question1);
+
+                // Add the buttons to the page
                 $("#button1").text(gameQuestions[0].choices1[0]);
                 $("#button2").text(gameQuestions[0].choices1[1]);
                 $("#button3").text(gameQuestions[0].choices1[2]);
                 $("#button4").text(gameQuestions[0].choices1[3]);
-                $("#start").remove();
-        });
 
-        $('#buttons').on('click', function(event) {
-                console.log("You clicked on: ", event.target);
-            }
+                // Remove the start button from the page
+                $("#start").remove();
+
+
+
+
+
+
+
+
+        });
 
 
        
