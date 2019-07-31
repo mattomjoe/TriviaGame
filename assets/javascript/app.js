@@ -88,18 +88,18 @@ $(document).ready(function () { // ALWAYS INCLUDE!!
         var gameQuestions = [{
                 question1: "Minnesota is home to the U.S. Hockey Hall of Fame located in which city?",
                 choices1: ["St. Paul", "Eveleth", "Duluth", "Bemidji"],
-                correctAnswer1: "Eveleth"
+                correctAnswer1: "2"
 
         },
         {
                 question2: "Which former Minnesota Viking player went on to serve as a Justice on the Minnesota Supreme Court?",
                 choices2: ["Jim Marshall", "Chuck Foreman", "Alan Page", "Carl Eller"],
-                correctAnswer2: "Alan Page"
+                correctAnswer2: "3"
         },
         {
                 question3: "Where did the Timberwolves play in their first season?",
                 choices3: ["Metrodome", "Civic Center", "Met Center", "Williams Arena"],
-                correctAnswer3: "Metrodome"
+                correctAnswer3: "1"
         },
         {
                 question4: "How many championships have the Lynx won?",
@@ -109,7 +109,7 @@ $(document).ready(function () { // ALWAYS INCLUDE!!
         {
                 question5: "In the 1991 World Series between the Minnesota Twins and Atlanta Braves, how many games were decided by one run?",
                 choices5: ["2", "3", "4", "5"],
-                correctAnswer5: "5"
+                correctAnswer5: "4" // "4" refers to button, not actual answer!
         }];
 
 // ******************** CORE OF GAME PAGE ***************************//
@@ -135,6 +135,13 @@ $(document).ready(function () { // ALWAYS INCLUDE!!
 
 //*******************************************************************/
 
+
+        // I CANNOT GET MY BUTTONS TO WORK!!!!
+
+        $('.ansbutton').click(function() {
+                alert($(this).("value"));
+        });
+
         /*
         $(".ansButton").click(function checkAnswer() { // Get value of user button push and compare against correct answer
                 
@@ -149,6 +156,7 @@ $(document).ready(function () { // ALWAYS INCLUDE!!
         var correctAnswerScreen = function () {
                 $("#correct").html("<h1>CORRECT!</h1>");
                 rightAnswerTotal++;
+                
         }
 
         // Function runs if the user answer does not match the correct answer
