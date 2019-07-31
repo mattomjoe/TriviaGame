@@ -61,9 +61,12 @@ $(document).ready(function () { // ALWAYS INCLUDE!!
                 run();
         }
 
-        function buttons () {
-                // Add the buttons to the page
+        function question () { // Add the question to the page
+                $("#question").text(gameQuestions[0].question1);
+        }
 
+        function buttons () { // Add the buttons to the page
+                
                 $("#button1").html("<button>" + gameQuestions[0].choices1[0] + "</button>");
                 $("#button2").html("<button>" + gameQuestions[0].choices1[1] + "</button>");
                 $("#button3").html("<button>" + gameQuestions[0].choices1[2] + "</button>");
@@ -113,33 +116,42 @@ $(document).ready(function () { // ALWAYS INCLUDE!!
 
         $("#start").click(function () {
 
-                // Add image for question to the page
-
-                //$("$question-picture").remove();
-                $("#question-picture").replaceWith("<img src='assets/images/question1.jpg'/>");
-
-                // Add the question to the page
-                $("#question").text(gameQuestions[0].question1);
-
-                buttons(); // Function adds buttons for question choices to page
-
                 // Remove the start button from the page
                 $("#start").remove();
 
+                // Add image for question to the page
+
+                $("#question-picture").replaceWith("<img src='assets/images/question1.jpg'/>");
+
+                question();
+
+                buttons(); // Function adds buttons for question choices to page
+
                 timer();
+
+                // checkAnswer();
 
         });
 
 //*******************************************************************/
 
-        // Create a function to run if the user answer matches the correct answer
+        /*
+        $(".ansButton").click(function checkAnswer() { // Get value of user button push and compare against correct answer
+                
+
+        });
+
+             
+        */
+
+        // Function runs if the user answer matches the correct answer
 
         var correctAnswerScreen = function () {
                 $("#correct").html("<h1>CORRECT!</h1>");
                 rightAnswerTotal++;
         }
 
-        // Create a function to run if the user answer does not match the correct answer
+        // Function runs if the user answer does not match the correct answer
 
         var wrongAnswerScreen = function () {
                 $("#incorrect").html("<h1>WRONG!</h1>");
@@ -147,7 +159,7 @@ $(document).ready(function () { // ALWAYS INCLUDE!!
                 wrongAnswerTotal++;
         }
 
-        // Create a function to run once quiz is complete to show number of correct, incorrect, and unanswered questions
+        // Function runs once quiz is complete to show number of correct, incorrect, and unanswered questions
         var endScreen = function () {
                 $("#correct").text("Number correct: " + rightAnswerTotal);
                 $("#incorrect").text("Number incorrect: " + wrongAnswerTotal);
