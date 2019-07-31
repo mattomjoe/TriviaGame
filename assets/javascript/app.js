@@ -1,24 +1,29 @@
-$( document ).ready(function() { // ALWAYS INCLUDE!!
-        console.log( "ready!" );
+$(document).ready(function () { // ALWAYS INCLUDE!!
+        console.log("ready!");
 
+        var rightAnswerTotal = 0; // Var to hold right answer total at end of game
+        var wrongAnswerTotal = 0; // Var to hold wrong answer total at end of game
+        var unAnsweredTotal = 0; // Var to hold unanswered questions (timed out) at end of game
+        var timerStart = 10; // Sets timer to start at 10 seconds
+        var intervalId; // Variable that will hold our interval ID when we execute the "run" function
 
-        var start = function() {
+        function start() {
 
-                var rightAnswerTotal = 0; // Var to hold right answer total at end of game
-                var wrongAnswerTotal = 0; // Var to hold wrong answer total at end of game
-                var unAnsweredTotal = 0; // Var to hold unanswered questions (timed out) at end of game
-                var timerStart = 10; // Sets timer to start at 10 seconds
-                var intervalId; // Variable that will hold our interval ID when we execute the "run" function
+                rightAnswerTotal = 0; // Var to hold right answer total at end of game
+                wrongAnswerTotal = 0; // Var to hold wrong answer total at end of game
+                unAnsweredTotal = 0; // Var to hold unanswered questions (timed out) at end of game
+                timerStart = 10; // Sets timer to start at 10 seconds
+                intervalId; // Variable that will hold our interval ID when we execute the "run" function
 
         }
 
         // Create array for trivia game that will hold questions, answer arrays, objects
 
         var gameQuestions = [{
-                question1: "Minnesota is home to the U.S. Hockey Hall of Fame located in which city?", 
+                question1: "Minnesota is home to the U.S. Hockey Hall of Fame located in which city?",
                 choices1: ["St. Paul", "Eveleth", "Duluth", "Bemidji"],
                 correctAnswer1: "Eveleth"
-                
+
         },
         {
                 question2: "Which former Minnesota Viking player went on to serve as a Justice on the Minnesota Supreme Court?",
@@ -43,7 +48,7 @@ $( document ).ready(function() { // ALWAYS INCLUDE!!
 
         console.log(gameQuestions[0].choices1[1]);
 
-        $("#start").click(function(){
+        $("#start").click(function () {
 
                 // Add image for question to the page
 
@@ -78,8 +83,8 @@ $( document ).ready(function() { // ALWAYS INCLUDE!!
                 //  *****BUG FIX******** 
                 //  Clearing the intervalId prior to setting our new intervalId will not allow multiple instances.
                 function run() {
-                clearInterval(intervalId);
-                intervalId = setInterval(decrement, 1000);
+                        clearInterval(intervalId);
+                        intervalId = setInterval(decrement, 1000);
                 }
 
                 //  The decrement function.
@@ -95,31 +100,68 @@ $( document ).ready(function() { // ALWAYS INCLUDE!!
                         //  Once number hits zero...
                         if (number === 0) {
 
-                        //  ...run the stop function.
-                        stop();
+                                //  ...run the stop function.
+                                stop();
 
-                        //  Alert the user that time is up.
-                        ////alert("Time Up!");
+                                //  Alert the user on the page that time is up.
+                                $("#timer").html("<h1>Sorry, time's up!</h1>");
+
+                                ////alert("Time Up!");
                         }
                 }
 
                 //  The stop function
                 function stop() {
 
-                //  Clears our intervalId
-                //  We just pass the name of the interval
-                //  to the clearInterval function.
-                clearInterval(intervalId);
+                        //  Clears our intervalId
+                        //  We just pass the name of the interval
+                        //  to the clearInterval function.
+                        clearInterval(intervalId);
                 }
 
                 //  Execute the run function.
                 run();
 
-
         });
 
+        // Create a function to run if the user answer matches the correct answer
 
-       
+        var correctAnswerScreen = function () {
+                $("#correct").html("<h1>CORRECT!</h1>");
+                rightAnswerTotal++;
+        }
+
+        // Create a function to run if the user answer does not match the correct answer
+
+        var wrongAnswerScreen = function () {
+                $("#incorrect").html("<h1>WRONG!</h1>");
+                $("#answer").text("Answer: ")
+                wrongAnswerTotal++;
+        }
+
+        // Create a function to run once quiz is complete to show number of correct, incorrect, and unanswered questions
+        var endScreen = function () {
+                $("#correct").text("Number correct: " + rightAnswerTotal);
+                $("#incorrect").text("Number incorrect: " + wrongAnswerTotal);
+                $("#timed-out").text("Number of timed out: " + unAnsweredTotal);
+        }
+
+
+
+
+
+
+
+
+
+        /*
+         $("#button1, #button2, #button3, #button4").click(function() {
+                if 
+                        alert("Correct!");
+        });
+        */
+
+
 
 
 
