@@ -7,7 +7,7 @@ $(document).ready(function () { // ALWAYS INCLUDE!!
         var timerStart = 10; // Sets timer to start at 10 seconds
         var intervalId; // Variable that will hold our interval ID when we execute the "run" function
 
-        function timer(){ // *** TIMER ***
+        function timer() { // *** TIMER ***
 
                 //  Set our number counter to 10.
                 var number = 11;
@@ -121,15 +121,15 @@ $(document).ready(function () { // ALWAYS INCLUDE!!
 
                 // Add image for question to the page
 
-                $("#question-picture").replaceWith("<img src='assets/images/question1.jpg'/>");
+                $("#question-picture").replaceWith("<img src='assets/images/question1.jpg' alt='Hockey HOF'/>");
 
-                question();
+                question(); // Function adds question for quiz to page
 
                 buttons(); // Function adds buttons for question choices to page
 
                 timer();
 
-                // checkAnswer();
+                
 
         });
 
@@ -138,9 +138,31 @@ $(document).ready(function () { // ALWAYS INCLUDE!!
 
         // I CANNOT GET MY BUTTONS TO WORK!!!!
 
+        /*
         $('.ansbutton').click(function() {
                 alert($(this).("value"));
         });
+        */
+
+        /*
+         $("#button1, #button2, #button3, #button4").click(function() {
+                alert("Correct!");
+        
+
+        /*
+                questionNum++;
+                if (questionNum >= questions.length) {
+                        game over!
+                }
+        });
+        */
+
+        /*
+        $("#button1").click(function(event){
+                alert($(this).prop("value"));
+               });
+        */
+
 
         /*
         $(".ansButton").click(function checkAnswer() { // Get value of user button push and compare against correct answer
@@ -182,17 +204,7 @@ $(document).ready(function () { // ALWAYS INCLUDE!!
 
 
 
-        /*
-         $(".button1, #button2, #button3, #button4").click(function() {
-                if 
-                        alert("Correct!");
-
-                questionNum++;
-                if (questionNum >= questions.length) {
-                        game over!
-                }
-        });
-        */
+        
 
 
 
